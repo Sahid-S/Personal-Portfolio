@@ -13,9 +13,12 @@ import {
   FiUser,
   FiMessageSquare
 } from 'react-icons/fi';
+import SEO from '../components/SEO';
+import { getPageSEO } from '../config/seoConfig';
 
 const Contact = () => {
   const { darkMode } = useContext(ThemeContext);
+  const pageSEO = getPageSEO('contact');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -113,8 +116,15 @@ const Contact = () => {
   ];
 
   return (
-    <section className="min-h-screen py-20 pt-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <SEO 
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        canonicalUrl={`https://www.sahid.me${pageSEO.path}`}
+      />
+      <section className="min-h-screen py-20 pt-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -412,6 +422,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

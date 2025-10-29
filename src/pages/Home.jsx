@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ThemeContext } from '../App';
 import { FiArrowRight, FiDownload, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { SiPython, SiReact, SiTensorflow } from 'react-icons/si';
+import SEO from '../components/SEO';
 
 const TypingAnimation = ({ text, delay = 0 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -56,7 +57,15 @@ const Home = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-16">
+    <>
+      <SEO 
+        title="Sahid | Data Science & Machine Learning Portfolio"
+        description="Welcome to Sahid's portfolio. Data Science Enthusiast & Creative Technologist specializing in machine learning, AI, and full-stack development. Explore my projects and skills."
+        keywords="Sahid, Data Science, Machine Learning, AI, Portfolio, Python, React, TensorFlow, Data Analytics, Web Development"
+        ogType="website"
+        canonicalUrl="https://www.sahid.me/"
+      />
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-16">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className={`absolute inset-0 ${
@@ -244,6 +253,7 @@ const Home = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

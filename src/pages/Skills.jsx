@@ -27,9 +27,12 @@ import {
   SiRazorpay
 } from 'react-icons/si';
 import { FaDatabase, FaCode, FaCloud } from 'react-icons/fa';
+import SEO from '../components/SEO';
+import { getPageSEO } from '../config/seoConfig';
 
 const Skills = () => {
   const { darkMode } = useContext(ThemeContext);
+  const pageSEO = getPageSEO('skills');
 
   const skillCategories = [
     {
@@ -119,8 +122,15 @@ const Skills = () => {
   };
 
   return (
-    <section className="min-h-screen py-20 pt-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <SEO 
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        canonicalUrl={`https://www.sahid.me${pageSEO.path}`}
+      />
+      <section className="min-h-screen py-20 pt-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -258,6 +268,7 @@ const Skills = () => {
         </motion.div>
       </div>
     </section>
+    </>
   );
 };
 

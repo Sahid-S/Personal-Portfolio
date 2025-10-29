@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { HelmetProvider } from 'react-helmet-async';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -54,28 +55,30 @@ function App() {
   };
 
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <Router>
-        <div className={`min-h-screen transition-colors duration-300 ${
-          darkMode ? 'bg-gray-900' : 'bg-gray-50'
-        }`}>
-          <ScrollToTop />
-          <Navbar />
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </AnimatePresence>
-          <Footer />
-          <BackToTop />
-        </div>
-      </Router>
-    </ThemeContext.Provider>
+    <HelmetProvider>
+      <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
+        <Router>
+          <div className={`min-h-screen transition-colors duration-300 ${
+            darkMode ? 'bg-gray-900' : 'bg-gray-50'
+          }`}>
+            <ScrollToTop />
+            <Navbar />
+            <AnimatePresence mode="wait">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </AnimatePresence>
+            <Footer />
+            <BackToTop />
+          </div>
+        </Router>
+      </ThemeContext.Provider>
+    </HelmetProvider>
   );
 }
 

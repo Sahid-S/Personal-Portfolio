@@ -4,9 +4,12 @@ import { ThemeContext } from '../App';
 import { FiGithub, FiExternalLink, FiCalendar, FiUsers } from 'react-icons/fi';
 import { SiPython, SiReact, SiTensorflow, SiFlask, SiMongodb, SiPostgresql, SiDocker, SiJavascript, SiNodedotjs, SiScikitlearn, SiPandas, SiNumpy, SiStreamlit} from 'react-icons/si';
 import { FaCode } from 'react-icons/fa';
+import SEO from '../components/SEO';
+import { getPageSEO } from '../config/seoConfig';
 
 const Projects = () => {
   const { darkMode } = useContext(ThemeContext);
+  const pageSEO = getPageSEO('projects');
 
   const projects = [
     {
@@ -89,8 +92,15 @@ const Projects = () => {
   };
 
   return (
-    <section className="min-h-screen py-20 pt-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <SEO 
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        canonicalUrl={`https://www.sahid.me${pageSEO.path}`}
+      />
+      <section className="min-h-screen py-20 pt-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -296,6 +306,7 @@ const Projects = () => {
         </motion.div>
       </div>
     </section>
+    </>
   );
 };
 

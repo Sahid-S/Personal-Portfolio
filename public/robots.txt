@@ -1,0 +1,43 @@
+# robots.txt for Sahid's Portfolio Website
+# Generated: October 2025
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Disallow crawling of any private or sensitive directories (if any)
+# Uncomment and modify as needed:
+# Disallow: /private/
+# Disallow: /admin/
+
+# Allow crawling of assets and resources
+Allow: /assets/
+Allow: *.css
+Allow: *.js
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.gif
+Allow: *.svg
+Allow: *.webp
+Allow: *.pdf
+
+# Sitemap location
+Sitemap: https://www.sahid.me/sitemap.xml
+
+# Crawl-delay (optional, uncomment if needed to prevent server overload)
+# Crawl-delay: 1
+
+# Specific bot instructions
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Prevent crawling of development/build artifacts
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /.git/

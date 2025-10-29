@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../App';
 import { FiBookOpen, FiTarget, FiHeart, FiAward, FiCpu, FiBarChart2, FiCode, FiGlobe } from 'react-icons/fi';
+import SEO from '../components/SEO';
+import { getPageSEO } from '../config/seoConfig';
 
 const About = () => {
   const { darkMode } = useContext(ThemeContext);
+  const pageSEO = getPageSEO('about');
 
   const interests = [
     { icon: FiCpu, title: 'AI & Machine Learning', description: 'Designing intelligent models that solve real-world problems.' },
@@ -22,8 +25,15 @@ const About = () => {
   ];
 
   return (
-    <section className="min-h-screen py-20 pt-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <SEO 
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        canonicalUrl={`https://www.sahid.me${pageSEO.path}`}
+      />
+      <section className="min-h-screen py-20 pt-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -241,6 +251,7 @@ const About = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
