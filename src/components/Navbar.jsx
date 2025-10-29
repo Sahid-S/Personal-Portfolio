@@ -157,7 +157,15 @@ const Navbar = () => {
         <motion.div
           initial={false}
           animate={{ height: isOpen ? 'auto' : 0 }}
-          className="md:hidden overflow-hidden"
+          className={`md:hidden overflow-hidden ${
+            scrolled
+              ? darkMode
+                ? 'bg-gray-900/95'
+                : 'bg-white/95'
+              : darkMode
+                ? 'bg-gray-900/95'
+                : 'bg-white/95'
+          }`}
         >
           <div className="py-4 space-y-2">
             {navItems.map((item) => {

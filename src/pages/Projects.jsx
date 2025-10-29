@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../App';
 import { FiGithub, FiExternalLink, FiCalendar, FiUsers } from 'react-icons/fi';
-import { SiPython, SiReact, SiTensorflow, SiFlask, SiMongodb, SiPostgresql, SiDocker, SiJavascript, SiNodedotjs, SiScikitlearn, SiPandas, SiNumpy } from 'react-icons/si';
+import { SiPython, SiReact, SiTensorflow, SiFlask, SiMongodb, SiPostgresql, SiDocker, SiJavascript, SiNodedotjs, SiScikitlearn, SiPandas, SiNumpy, SiStreamlit} from 'react-icons/si';
+import { FaCode } from 'react-icons/fa';
 
 const Projects = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -10,57 +11,59 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'AI-Powered Stock Market Predictor',
-      description: 'A machine learning application that analyzes historical stock data and predicts future trends using LSTM neural networks. Features real-time data fetching, interactive visualizations, and portfolio optimization recommendations.',
-      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop',
+      title: 'Rainfall Prediction System Using Machine Learning',
+      description: 'Comprehensive capstone project focusing on predicting monthly, seasonal, and annual rainfall in India based on historical meteorological data. Developed a Streamlit-based interactive dashboard and dual-model prediction engine (Linear Regression & Random Forest) that provided accurate rainfall forecasts and visual insights for agricultural planning and climate research.',
+      image: 'https://images.unsplash.com/photo-1722767910306-693b09cf3cda?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170',
       techStack: [
         { name: 'Python', icon: SiPython },
-        { name: 'TensorFlow', icon: SiTensorflow },
-        { name: 'Flask', icon: SiFlask },
-        { name: 'PostgreSQL', icon: SiPostgresql },
         { name: 'Pandas', icon: SiPandas },
+        { name: 'Numpy', icon: SiNumpy },
+        { name: 'Scikit-Learn', icon: SiScikitlearn },
+        { name: 'Matplotlib', icon: FaCode },
+        { name: 'Streamlit', icon: SiStreamlit },
       ],
-      features: ['Real-time predictions', 'Historical analysis', 'Portfolio optimization', 'Risk assessment'],
-      githubLink: 'https://github.com',
-      liveLink: 'https://example.com',
-      date: 'Jan 2024',
+      features: ['Dual ML Model Engine', 'Interactive Streamlit Dashboard', 'Automated Data Preprocessing', 'Subdivision-Based Insights'],
+      githubLink: 'https://github.com/Sahid-S/Rainfall-Prediction-System-Using-Machine-Learning',
+      liveLink: '',
+      date: 'May 2025',
       team: 'Solo Project'
     },
     {
       id: 2,
-      title: 'Healthcare Analytics Dashboard',
-      description: 'A comprehensive data visualization platform for healthcare providers to track patient outcomes, resource utilization, and treatment effectiveness. Implements predictive analytics for patient readmission risks.',
-      image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      title: 'IPL Win Prediction Using Machine Learning',
+      description: 'Comprehensive capstone project focusing on predictive analytics in sports using historical IPL match data. Developed a machine learning-based web application that predicts the winning probability of a team during an IPL match and provides AI-generated match commentary, achieving 89.7% accuracy with Random Forest.',
+      image: 'https://images.unsplash.com/photo-1750716414482-6cd2a65e25e5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1332',
+      techStack: [
+        { name: 'Python', icon: SiPython },
+        { name: 'Pandas', icon: SiPandas },
+        { name: 'Numpy', icon: SiNumpy },
+        { name: 'Scikit-Learn', icon: SiScikitlearn },
+        { name: 'Matplotlib', icon: FaCode },
+        { name: 'Streamlit', icon: SiStreamlit },
+      ],
+      features: ['Real-time Win Prediction', 'Interactive Web UI', 'AI-Generated Match Commentary', 'Model Performance Comparison Dashboard'],
+      githubLink: 'https://github.com/Sahid-S/IPL-Win-Prediction-Using-Machine-Learning',
+      liveLink: '',
+      date: 'May 2025',
+      team: 'Solo Project'
+    },
+    {
+      id: 3,
+      title: 'Coming Soon',
+      description: 'Exciting new project in development! This innovative application will showcase cutting-edge technology and modern design patterns. Stay tuned for updates as we work on bringing this vision to life.',
+      image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170',
       techStack: [
         { name: 'React', icon: SiReact },
         { name: 'Node.js', icon: SiNodedotjs },
         { name: 'MongoDB', icon: SiMongodb },
-        { name: 'Python', icon: SiPython },
-        { name: 'Scikit-learn', icon: SiScikitlearn },
+        { name: 'JavaScript', icon: SiJavascript },
       ],
-      features: ['Patient tracking', 'Predictive analytics', 'Resource management', 'Custom reports'],
-      githubLink: 'https://github.com',
-      liveLink: 'https://example.com',
-      date: 'Sep 2023',
-      team: '3 Developers'
-    },
-    {
-      id: 3,
-      title: 'Natural Language Processing API',
-      description: 'RESTful API service for sentiment analysis, text summarization, and entity recognition. Processes multilingual text with high accuracy using transformer models and provides detailed analytics.',
-      image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=400&fit=crop',
-      techStack: [
-        { name: 'Python', icon: SiPython },
-        { name: 'TensorFlow', icon: SiTensorflow },
-        { name: 'Docker', icon: SiDocker },
-        { name: 'Flask', icon: SiFlask },
-        { name: 'NumPy', icon: SiNumpy },
-      ],
-      features: ['Sentiment analysis', 'Text summarization', 'Entity recognition', 'Language detection'],
-      githubLink: 'https://github.com',
-      liveLink: 'https://example.com',
-      date: 'Jun 2023',
-      team: '2 Developers'
+      features: ['Modern Architecture', 'Responsive Design', 'Advanced Features', 'Performance Optimized'],
+      githubLink: '#',
+      liveLink: '#',
+      date: 'TBD 2025',
+      team: 'In Development',
+      comingSoon: true
     }
   ];
 
@@ -126,37 +129,59 @@ const Projects = () => {
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
                 <motion.img
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: project.comingSoon ? 1.05 : 1.1 }}
                   transition={{ duration: 0.3 }}
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full object-cover ${project.comingSoon ? 'filter grayscale opacity-70' : ''}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Coming Soon Overlay */}
+                {project.comingSoon && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-purple-600/50 to-transparent flex items-center justify-center">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="text-center"
+                    >
+                      <div className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent text-2xl font-bold mb-2">
+                        🚧 Coming Soon
+                      </div>
+                      <div className="text-white text-sm opacity-90">
+                        Under Development
+                      </div>
+                    </motion.div>
+                  </div>
+                )}
+                
+                <div className={`absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${project.comingSoon ? 'hidden' : ''}`} />
                 
                 {/* Overlay Links */}
-                <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <motion.a
-                    whileHover={{ scale: 1.1 }}
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-black/70 text-white rounded-lg hover:bg-black/90 transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <FiGithub className="w-5 h-5" />
-                  </motion.a>
-                  <motion.a
-                    whileHover={{ scale: 1.1 }}
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-black/70 text-white rounded-lg hover:bg-black/90 transition-colors"
-                    aria-label="Live Demo"
-                  >
-                    <FiExternalLink className="w-5 h-5" />
-                  </motion.a>
-                </div>
+                {!project.comingSoon && (
+                  <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <motion.a
+                      whileHover={{ scale: 1.1 }}
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-black/70 text-white rounded-lg hover:bg-black/90 transition-colors"
+                      aria-label="GitHub"
+                    >
+                      <FiGithub className="w-5 h-5" />
+                    </motion.a>
+                    <motion.a
+                      whileHover={{ scale: 1.1 }}
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-black/70 text-white rounded-lg hover:bg-black/90 transition-colors"
+                      aria-label="Live Demo"
+                    >
+                      <FiExternalLink className="w-5 h-5" />
+                    </motion.a>
+                  </div>
+                )}
               </div>
 
               {/* Project Content */}
@@ -231,12 +256,17 @@ const Projects = () => {
 
                 {/* View Project Button */}
                 <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => window.open(project.liveLink, '_blank')}
-                  className="w-full mt-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300"
+                  whileHover={{ scale: project.comingSoon ? 1.0 : 1.02 }}
+                  whileTap={{ scale: project.comingSoon ? 1.0 : 0.98 }}
+                  onClick={() => !project.comingSoon && window.open(project.githubLink, '_blank')}
+                  disabled={project.comingSoon}
+                  className={`w-full mt-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                    project.comingSoon
+                      ? 'bg-gray-400 text-gray-200 cursor-not-allowed opacity-60'
+                      : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg'
+                  }`}
                 >
-                  View Project
+                  {project.comingSoon ? '🚧 Coming Soon' : 'View Project'}
                 </motion.button>
               </div>
             </motion.div>

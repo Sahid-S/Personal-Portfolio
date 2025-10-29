@@ -1,9 +1,50 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../App';
 import { FiArrowRight, FiDownload, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { SiPython, SiReact, SiTensorflow } from 'react-icons/si';
+
+const TypingAnimation = ({ text, delay = 0 }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    const startTyping = setTimeout(() => {
+      if (currentIndex < text.length) {
+        const timer = setTimeout(() => {
+          setDisplayedText(prev => prev + text[currentIndex]);
+          setCurrentIndex(prev => prev + 1);
+        }, 1); // Typing speed
+        return () => clearTimeout(timer);
+      }
+    }, delay);
+
+    return () => clearTimeout(startTyping);
+  }, [currentIndex, text, delay]);
+
+  useEffect(() => {
+    // Only show cursor if typing is not complete
+    if (currentIndex < text.length) {
+      const cursorTimer = setInterval(() => {
+        setShowCursor(prev => !prev);
+      }, 200); // Cursor blink speed
+
+      return () => clearInterval(cursorTimer);
+    } else {
+      // Hide cursor after typing is complete
+      setShowCursor(false);
+    }
+  }, [currentIndex, text.length]);
+
+  return (
+    <span>
+      {displayedText}
+      <span className={showCursor ? 'opacity-100' : 'opacity-0'}>|</span>
+    </span>
+  );
+};
 
 const Home = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -15,7 +56,7 @@ const Home = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-16">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className={`absolute inset-0 ${
@@ -117,10 +158,10 @@ const Home = () => {
                 darkMode ? 'text-gray-300' : 'text-gray-700'
               }`}
             >
-              Data Science Enthusiast & Creative Technologist
+              Building Intelligent Solutions From Code To Cloud
             </motion.p>
 
-            {/* Animated typing effect */}
+            {/* Real typing animation */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -129,9 +170,10 @@ const Home = () => {
                 darkMode ? 'text-gray-400' : 'text-gray-600'
               }`}
             >
-              <span className="inline-block">
-                Transforming data into insights | Building intelligent solutions
-              </span>
+              <TypingAnimation
+                text="Full-Stack Developer | AI Integration Specialist | Transforming ideas into scalable solutions"
+                delay={100}
+              />
             </motion.div>
 
             {/* CTA Buttons */}
@@ -176,9 +218,9 @@ const Home = () => {
               className="flex justify-center space-x-6"
             >
               {[
-                { Icon: FiGithub, href: 'https://github.com', label: 'GitHub' },
-                { Icon: FiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-                { Icon: FiMail, href: 'mailto:sahid@example.com', label: 'Email' },
+                { Icon: FiGithub, href: 'https://github.com/Sahid-S', label: 'GitHub' },
+                { Icon: FiLinkedin, href: 'https://www.linkedin.com/in/sahid-dev/', label: 'LinkedIn' },
+                { Icon: FiMail, href: 'mailto:sahidsfathima@gmail.com', label: 'Email' },
               ].map(({ Icon, href, label }) => (
                 <motion.a
                   key={label}

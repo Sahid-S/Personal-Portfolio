@@ -18,77 +18,61 @@ const Resume = () => {
   const education = [
     {
       degree: "Master of Science in Data Science",
-      institution: "Stanford University",
-      location: "Stanford, CA",
-      duration: "2022 - 2024",
-      description: "Specialized in Machine Learning and Deep Learning with a focus on NLP and Computer Vision. GPA: 3.9/4.0",
+      institution: "The American College",
+      location: "Madurai, India",
+      duration: "2024 - 2026",
+      description: "Cumulative GPA: 7/10",
       achievements: [
-        "Dean's List for Academic Excellence",
-        "Research Assistant in AI Lab",
-        "Published 2 papers on neural network optimization"
+        "Core Data Science & Programming Foundations: Completed advanced coursework in Python Programming, Fundamentals of Data Science, Artificial Intelligence, Big Data Analytics, Machine Learning, Deep Learning, and Cloud Computing with practical lab work.",
+        "Statistical & Analytical Techniques: Gained strong analytical foundation through Mathematics for Data Science, Statistics (I & II), Data Mining & Warehousing, and Databases for Data Science, enabling data modeling, hypothesis testing, and data-driven decision-making.",
+        "Hands-on Industry & Project Experience: Completed practical labs (Python, Big Data, Machine Learning, Deep Learning), internship and a capstone project focusing on end-to-end data workflows: data collection → preprocessing → model building → visualization & deployment."
       ]
     },
     {
-      degree: "Bachelor of Technology in Computer Science",
-      institution: "Indian Institute of Technology",
-      location: "Delhi, India",
-      duration: "2018 - 2022",
-      description: "Graduated with First Class Honors. Specialized in Artificial Intelligence and Data Structures.",
+      degree: "Bachelor of Science in Computer Science",
+      institution: "Jamal Mohamed College",
+      location: "Madurai, India",
+      duration: "2021 - 2024",
+      description: "Cumulative GPA: 7.5/10",
       achievements: [
-        "Gold Medalist in Programming Contest",
-        "Led Technical Society as President",
-        "Completed 5+ industry projects"
+        "Core Computer Science Foundations: Studied programming languages (C, C++, Java), Data Structures & Algorithms, Operating Systems, DBMS, Computer Networks and Web Programming with hands-on lab experience.",
+        "Applied Technologies & Tools: Gained practical exposure in software engineering, web development (HTML, CSS, JavaScript), RDBMS using SQL, Java Programming.",
+        "Industry-oriented Skill Development & Projects: Completed projects and skill enhancement courses including Soft Skills, Environmental Studies, Value Education, and Entrepreneurship Development."
       ]
     }
   ];
 
   const experience = [
     {
-      title: "Senior Data Scientist",
-      company: "Tech Innovations Inc.",
-      location: "San Francisco, CA",
-      duration: "Jan 2024 - Present",
-      description: "Leading a team of data scientists in developing ML models for predictive analytics and business intelligence.",
+      title: "Python Developer",
+      company: "TACTGEN",
+      location: "Madurai, India",
+      duration: "Feb 2025 - Present",
+      description: "Full-Stack Developer specializing in AI-integrated web and mobile applications, with proven expertise in building production-ready Flask APIs, React Native mobile apps (Gottalott, GENPI), third-party API integrations (eBay, Azure OpenAI, Google Search), payment gateway implementation, and end-to-end product development from concept to deployment.",
       responsibilities: [
-        "Developed ML pipelines that improved prediction accuracy by 35%",
-        "Led cross-functional teams of 8+ members",
-        "Implemented real-time analytics dashboard saving $2M annually",
-        "Mentored junior data scientists and interns"
-      ]
-    },
-    {
-      title: "Machine Learning Engineer",
-      company: "AI Solutions Corp",
-      location: "Remote",
-      duration: "Jun 2022 - Dec 2023",
-      description: "Built and deployed production-ready machine learning models for various client projects.",
-      responsibilities: [
-        "Created NLP models for sentiment analysis with 92% accuracy",
-        "Optimized existing algorithms reducing processing time by 40%",
-        "Deployed models using Docker and Kubernetes",
-        "Collaborated with clients to understand requirements"
-      ]
-    },
-    {
-      title: "Data Science Intern",
-      company: "Analytics Pro",
-      location: "Bangalore, India",
-      duration: "Jan 2022 - May 2022",
-      description: "Worked on data visualization and exploratory data analysis for business insights.",
-      responsibilities: [
-        "Performed EDA on large datasets using Python",
-        "Created interactive dashboards with Tableau",
-        "Assisted in building recommendation systems",
-        "Presented findings to stakeholders"
+        "Full-Stack API Development: Converted multiple Python applications (Streamlit, Image-to-Text, Product Description) to production-ready Flask APIs with proper exception handling, naming conventions, and comprehensive testing via Postman and curl.",
+        "AI/ML Integration: Implemented Azure OpenAI for image-to-text conversion, visual search using OpenAI's CLIP model with cosine similarity matching, and AI-powered product description generation with guardrails and classifier integration.",
+        "E-commerce Platform Development: Built and deployed Gottalott mobile app (React Native) with complete product management workflow - listings, editing, deletion, cross-platform publishing, advanced search filters, and subscription payment integration.",
+        "Third-Party API Integration: Successfully integrated eBay Browse API with OAuth2 authentication, Google Custom Search API for product images, and Facebook Marketplace for cross-listing functionality.",
+        "Enterprise Mobile Application: Developed GENPI Vendor Login mobile app with property management, ticket tracking, contract orders, proposal requests, vendor estimates, and token-based authentication with role-based access control.",
+        "Advanced Search Features: Implemented fuzzy matching search autocomplete, real-time voice-to-text translation for multilingual search, and visual similarity-based product matching system.",
+        "Payment Gateway Integration: Configured Razorpay payment system with backend-frontend connectivity for subscription management and transaction processing.",
+        "Database Management: Installed and configured PostgreSQL, SSMS, and pgAdmin4; performed data manipulation operations using Pandas and NumPy on CSV files and Excel datasets.",
+        "Quality Assurance: Conducted comprehensive testing across multiple modules including form validations, API endpoints, user authentication flows, and identified/documented bugs in GenPi property management system.",
+        "Production Deployment: Generated production-ready Android APKs using Gradle, implemented WebView-based applications with offline handling, pull-to-refresh functionality, and optimized pagination for improved performance."
       ]
     }
   ];
 
   const certifications = [
-    "AWS Certified Machine Learning - Specialty",
-    "Google Cloud Professional Data Engineer",
-    "TensorFlow Developer Certificate",
-    "Deep Learning Specialization - Coursera"
+    {
+      name: "100 Days of Code: The Complete Python Pro Bootcamp - Udemy",
+      link: "https://udemy-certificate.s3.amazonaws.com/image/UC-8df9ef35-d9a7-4ff1-8f75-40a194d5143a.jpg"
+    },
+    {
+      name: "The Complete Full-Stack Web Development Bootcamp - Udemy",
+      link: "https://udemy-certificate.s3.amazonaws.com/image/UC-243b900c-4205-48b5-8185-32cc24baa06b.jpg"
+    }
   ];
 
   const containerVariants = {
@@ -133,7 +117,7 @@ const Resume = () => {
 
           {/* Download Button */}
           <motion.a
-            href="/resume.pdf"
+            href="/assets/Sahid_Resume.pdf"
             download="Sahid_Resume.pdf"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -205,14 +189,25 @@ const Resume = () => {
                     </p>
                     
                     <ul className="space-y-2">
-                      {job.responsibilities.map((resp, i) => (
-                        <li key={i} className={`flex items-start ${
-                          darkMode ? 'text-gray-400' : 'text-gray-600'
-                        }`}>
-                          <FiCheck className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                          <span className="text-sm">{resp}</span>
-                        </li>
-                      ))}
+                      {job.responsibilities.map((resp, i) => {
+                        const [label, ...rest] = resp.split(':');
+                        const content = rest.join(':');
+                        return (
+                          <li key={i} className={`flex items-start ${
+                            darkMode ? 'text-gray-400' : 'text-gray-600'
+                          }`}>
+                            <FiCheck className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <span className="text-sm">
+                              <span className={`font-semibold ${
+                                darkMode ? 'text-purple-400' : 'text-purple-600'
+                              }`}>
+                                {label}:
+                              </span>
+                              {content}
+                            </span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 </motion.div>
@@ -312,24 +307,45 @@ const Resume = () => {
             </div>
             
             <div className="grid sm:grid-cols-2 gap-4">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.7 + index * 0.1 }}
-                  className={`flex items-center space-x-2 p-3 rounded-lg ${
-                    darkMode ? 'bg-gray-700' : 'bg-white'
-                  }`}
-                >
-                  <FiAward className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                  <span className={`text-sm ${
-                    darkMode ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
-                    {cert}
-                  </span>
-                </motion.div>
-              ))}
+              {certifications.map((cert, index) => {
+                const CertContent = (
+                  <>
+                    <FiAward className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+                    <span className={`text-sm ${
+                      darkMode ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
+                      {cert.name}
+                    </span>
+                  </>
+                );
+
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.7 + index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center space-x-2 p-3 rounded-lg ${
+                      darkMode ? 'bg-gray-700' : 'bg-white'
+                    } ${cert.link ? 'cursor-pointer' : 'cursor-default'}`}
+                  >
+                    {cert.link ? (
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 w-full"
+                      >
+                        {CertContent}
+                      </a>
+                    ) : (
+                      CertContent
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>

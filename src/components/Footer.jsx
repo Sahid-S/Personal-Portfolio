@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../App';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiHeart } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiHeart, FiInstagram } from 'react-icons/fi';
 
 const Footer = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -17,10 +17,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com', label: 'GitHub' },
-    { icon: FiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: FiMail, href: 'mailto:sahid@example.com', label: 'Email' },
+    { icon: FiGithub, href: 'https://github.com/Sahid-S', label: 'GitHub' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/sahid-dev/', label: 'LinkedIn' },
+    { icon: FiInstagram, href: 'https://www.instagram.com/sahid_1918/', label: 'Instagram' },
+    { icon: FiMail, href: 'mailto:sahidsfathima@gmail.com', label: 'Email' },
   ];
 
   return (
@@ -100,10 +100,13 @@ const Footer = () => {
         <div className={`pt-8 border-t text-center ${
           darkMode ? 'border-gray-800' : 'border-gray-200'
         }`}>
-          <p className={`text-sm flex items-center justify-center ${
+          <p className={`text-sm flex flex-wrap items-center justify-center gap-1 ${
             darkMode ? 'text-gray-400' : 'text-gray-600'
           }`}>
-            © {currentYear} Sahid. Made with <FiHeart className="w-4 h-4 mx-1 text-red-500" /> using React & Tailwind CSS
+            <span>© 2025 Sahid. Some rights reserved.</span>
+            <span className="flex items-center gap-1">
+              Open-sourced on GitHub with <FiHeart className="w-4 h-4 text-red-500" />
+            </span>
           </p>
         </div>
       </div>

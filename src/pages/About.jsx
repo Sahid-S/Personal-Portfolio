@@ -1,23 +1,24 @@
 import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../App';
-import { FiBookOpen, FiTarget, FiHeart, FiAward } from 'react-icons/fi';
+import { FiBookOpen, FiTarget, FiHeart, FiAward, FiCpu, FiBarChart2, FiCode, FiGlobe } from 'react-icons/fi';
 
 const About = () => {
   const { darkMode } = useContext(ThemeContext);
 
   const interests = [
-    { icon: FiBookOpen, title: 'Machine Learning', description: 'Exploring deep learning and neural networks' },
-    { icon: FiTarget, title: 'Data Analytics', description: 'Finding patterns and insights in complex data' },
-    { icon: FiHeart, title: 'Open Source', description: 'Contributing to community projects' },
-    { icon: FiAward, title: 'Innovation', description: 'Building creative tech solutions' },
+    { icon: FiCpu, title: 'AI & Machine Learning', description: 'Designing intelligent models that solve real-world problems.' },
+    { icon: FiBarChart2, title: 'Data Storytelling', description: 'Transforming data into actionable insights and visual narratives.' },
+    { icon: FiCode, title: 'Full-Stack Development', description: 'Building end-to-end applications using React and Python.' },
+    { icon: FiGlobe, title: 'Open Collaboration', description: 'Learning, sharing, and contributing to impactful projects.' },
   ];
 
+
   const stats = [
-    { value: '3+', label: 'Years Experience' },
-    { value: '20+', label: 'Projects Completed' },
+    { value: '1+', label: 'Years Experience' },
+    { value: '2+', label: 'Projects Completed' },
+    { value: '2+', label: 'Certifications' },
     { value: '10+', label: 'Technologies' },
-    { value: '5★', label: 'Client Rating' },
   ];
 
   return (
@@ -66,9 +67,12 @@ const About = () => {
                 >
                   <div className="w-64 h-64 sm:w-80 sm:h-80 mx-auto rounded-full overflow-hidden border-4 border-gradient-to-r from-purple-500 to-pink-500 shadow-2xl">
                     <img
-                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sahid&backgroundColor=b6e3f4&clothing=hoodie&eyebrows=default&eyes=happy&mouth=smile"
+                      src="/assets/profile.jpg"
                       alt="Sahid"
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.src = "https://api.dicebear.com/7.x/avataaars/svg?seed=Sahid&backgroundColor=b6e3f4&clothing=hoodie&eyebrows=default&eyes=happy&mouth=smile";
+                      }}
                     />
                   </div>
                 </motion.div>
@@ -76,11 +80,38 @@ const About = () => {
                 {/* Floating badges */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    x: [0, 10, -5, 8, 0],
+                    y: [0, -8, 12, -6, 0]
+                  }}
+                  transition={{ 
+                    delay: 0.5,
+                    x: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                  }}
                   className="absolute -top-4 -right-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
                 >
                   Data Scientist
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    x: [0, -12, 6, -8, 0],
+                    y: [0, 10, -7, 9, 0]
+                  }}
+                  transition={{ 
+                    delay: 0.7,
+                    x: { duration: 3.5, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 4.2, repeat: Infinity, ease: "easeInOut" }
+                  }}
+                  className="absolute -bottom-4 -left-4 bg-gradient-to-r from-pink-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
+                >
+                  Tech Enthusiast
                 </motion.div>
               </div>
             </motion.div>
@@ -98,20 +129,18 @@ const About = () => {
               
               <div className={`space-y-4 text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 <p>
-                  I'm a passionate Data Science enthusiast with a love for transforming complex data 
-                  into meaningful insights and building intelligent solutions that make a difference.
+                  A recent MSc Data Science graduate passionate about transforming data into meaningful insights and intelligent 
+                  solutions. Experienced in Machine Learning, Data Analytics, and Full-Stack development, with hands-on projects using Python, React, and Flask.
                 </p>
                 
                 <p>
-                  With a strong foundation in machine learning, statistical analysis, and full-stack 
-                  development, I bridge the gap between data science and practical applications. My 
-                  journey in tech has been driven by curiosity and a desire to solve real-world problems.
+                  Motivated by solving real-world problems, whether it's predicting outcomes with machine learning, 
+                  discovering patterns in complex datasets, or developing end-to-end applications that combine clean design with data-driven thinking.
                 </p>
                 
                 <p>
-                  When I'm not diving into datasets or training models, you'll find me contributing 
-                  to open-source projects, exploring new technologies, or sharing knowledge with the 
-                  developer community.
+                  Currently open to full-time opportunities and collaborative projects, with a strong interest in 
+                  environments that encourage learning, innovation, and meaningful impact.
                 </p>
               </div>
 
@@ -160,15 +189,15 @@ const About = () => {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 + index * 0.1 }}
+                    transition={{ delay: 0.6 + index * 0.1, duration: 0.15 }}
                     whileHover={{ y: -5, scale: 1.02 }}
-                    className={`p-6 rounded-xl text-center group cursor-pointer transition-all duration-300 ${
+                    className={`p-6 rounded-xl text-center group cursor-pointer transition-all duration-150 ${
                       darkMode
                         ? 'bg-gray-800 hover:bg-gray-750'
                         : 'bg-white hover:bg-gray-50 shadow-lg hover:shadow-xl'
                     }`}
                   >
-                    <div className={`inline-flex p-3 rounded-lg mb-4 transition-colors duration-300 ${
+                    <div className={`inline-flex p-3 rounded-lg mb-4 transition-colors duration-150 ${
                       darkMode
                         ? 'bg-purple-900/50 text-purple-400 group-hover:bg-purple-900/70'
                         : 'bg-purple-100 text-purple-600 group-hover:bg-purple-200'

@@ -9,6 +9,7 @@ import {
   FiMapPin,
   FiPhone,
   FiSend,
+  FiInstagram,
   FiUser,
   FiMessageSquare
 } from 'react-icons/fi';
@@ -34,35 +35,52 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const formDataToSend = new FormData(e.target);
+      formDataToSend.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "fc90559b-51a2-4f79-aa46-2bfdcdfcbd6b");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        console.log("Error", data);
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
       setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Clear success message after 5 seconds
+      // Clear status message after 5 seconds
       setTimeout(() => setSubmitStatus(null), 5000);
-    }, 2000);
+    }
   };
 
   const contactInfo = [
     {
       icon: FiMail,
       label: 'Email',
-      value: 'sahid@example.com',
-      href: 'mailto:sahid@example.com'
+      value: 'sahidsfathima@gmail.com',
+      href: 'mailto:sahidsfathima@gmail.com'
     },
     {
       icon: FiPhone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      value: '+91 6374921410',
+      href: 'tel:+916374921410'
     },
     {
       icon: FiMapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Madurai, India',
       href: null
     }
   ];
@@ -71,25 +89,25 @@ const Contact = () => {
     {
       icon: FiGithub,
       label: 'GitHub',
-      href: 'https://github.com',
+      href: 'https://github.com/Sahid-S',
       color: 'hover:text-gray-900 dark:hover:text-white'
     },
     {
       icon: FiLinkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com',
+      href: 'https://www.linkedin.com/in/sahid-dev/',
       color: 'hover:text-blue-600'
     },
     {
-      icon: FiTwitter,
-      label: 'Twitter',
-      href: 'https://twitter.com',
+      icon: FiInstagram,
+      label: 'Instagram',
+      href: 'https://www.instagram.com/sahid_1918/',
       color: 'hover:text-blue-400'
     },
     {
       icon: FiMail,
       label: 'Email',
-      href: 'mailto:sahid@example.com',
+      href: 'mailto:sahidsfathima@gmail.com',
       color: 'hover:text-red-500'
     }
   ];
@@ -258,6 +276,17 @@ const Contact = () => {
                     ✓ Message sent successfully! I'll get back to you soon.
                   </motion.div>
                 )}
+
+                {/* Error Message */}
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-500"
+                  >
+                    ✗ Something went wrong. Please try again or contact me directly.
+                  </motion.div>
+                )}
               </form>
             </motion.div>
 
@@ -374,7 +403,7 @@ const Contact = () => {
                 <p className={`text-sm ${
                   darkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
-                  I'm currently open to new projects and collaborations. 
+                  I'm currently open to full-time roles and project collaborations. 
                   Feel free to reach out if you have an exciting opportunity!
                 </p>
               </motion.div>
