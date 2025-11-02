@@ -2,52 +2,52 @@
 // Import this in your page components for consistent SEO metadata
 
 export const seoConfig = {
-  siteName: 'Sahid Portfolio',
+  siteName: 'SAHID Portfolio',
   siteUrl: 'https://www.sahid.me',
-  author: 'Sahid',
+  author: 'SAHID',
   twitterHandle: '@sahid',
-  defaultImage: '/og-image.png',
+  defaultImage: '/og.png',
   
   pages: {
     home: {
-      title: 'Sahid | Data Science & Machine Learning Portfolio',
-      description: 'Welcome to Sahid\'s portfolio. Data Science Enthusiast & Creative Technologist specializing in machine learning, AI, and full-stack development. Explore my projects and skills.',
-      keywords: 'Sahid, Data Science, Machine Learning, AI, Portfolio, Python, React, TensorFlow, Data Analytics, Web Development',
+      title: 'SAHID — Python Developer | Data Scientist | Data Analyst | Full-Stack Developer',
+      description: 'Portfolio of SAHID, a Python Developer, Data Scientist, Data Analyst and Full-Stack Developer specializing in AI-powered web and data applications. Building intelligent solutions with Python, machine learning, and modern full-stack development.',
+      keywords: 'SAHID, Python Developer, Data Scientist, Data Analyst, Full-Stack Developer, AI, Machine Learning, Python Programming, Data Analytics, Web Development, Portfolio, TensorFlow, React, Flask, Full Stack Development',
       path: '/'
     },
     
     about: {
-      title: 'About Sahid | Data Scientist & Developer',
-      description: 'Learn more about Sahid - a passionate data scientist with expertise in machine learning, AI, and web development. Discover my journey, skills, and interests.',
-      keywords: 'About Sahid, Data Scientist, Machine Learning Engineer, Background, Experience, Skills',
+      title: 'About SAHID | Python Developer, Data Scientist & Full-Stack Developer',
+      description: 'Learn about SAHID - a versatile Python Developer, Data Scientist, Data Analyst and Full-Stack Developer specializing in AI-powered applications. Discover my journey in building intelligent solutions with data and modern technologies.',
+      keywords: 'About SAHID, Python Developer, Data Scientist, Data Analyst, Full-Stack Developer, Machine Learning Engineer, AI Developer, Background, Experience, Skills',
       path: '/about'
     },
     
     skills: {
-      title: 'Skills & Technologies | Sahid Portfolio',
-      description: 'Explore Sahid\'s technical skills including Python, Machine Learning, TensorFlow, React, Data Analytics, and more. View proficiency levels and technology stack.',
-      keywords: 'Technical Skills, Python, Machine Learning, TensorFlow, React, Data Science, Programming Languages',
+      title: 'Skills & Technologies | SAHID - Python, Data Science & Full-Stack Development',
+      description: 'Explore SAHID\'s comprehensive technical skills spanning Python development, data science, analytics, and full-stack technologies. Expert in Python, Machine Learning, TensorFlow, React, Flask, Data Analysis, and modern web development frameworks.',
+      keywords: 'Technical Skills, Python Programming, Machine Learning, TensorFlow, React, Data Science, Data Analytics, Full-Stack Development, Flask, Django, JavaScript, Programming Languages',
       path: '/skills'
     },
     
     projects: {
-      title: 'Projects | Sahid\'s Portfolio',
-      description: 'Browse through Sahid\'s data science and web development projects. From machine learning models to full-stack applications, see real-world implementations.',
-      keywords: 'Data Science Projects, Machine Learning Projects, Web Development, Portfolio Projects, GitHub',
+      title: 'Projects | SAHID - AI, Data Science & Full-Stack Applications',
+      description: 'Explore SAHID\'s portfolio of AI-powered applications, data science projects, and full-stack web solutions. From machine learning models to intelligent applications, see real-world implementations using Python, TensorFlow, React, and modern technologies.',
+      keywords: 'AI Projects, Data Science Projects, Machine Learning Projects, Full-Stack Applications, Python Projects, Web Development, Portfolio Projects, GitHub, TensorFlow Projects',
       path: '/projects'
     },
     
     resume: {
-      title: 'Resume | Sahid - Data Scientist',
-      description: 'View Sahid\'s professional resume including education, work experience, certifications, and achievements in data science and software development.',
-      keywords: 'Resume, CV, Education, Work Experience, Data Scientist Resume, Download Resume',
+      title: 'Resume | SAHID - Python Developer, Data Scientist & Full-Stack Developer',
+      description: 'View SAHID\'s professional resume showcasing expertise in Python development, data science, analytics, and full-stack development. Includes education, work experience, certifications, and achievements in AI and software development.',
+      keywords: 'Resume, CV, Education, Work Experience, Python Developer Resume, Data Scientist Resume, Full-Stack Developer CV, Download Resume',
       path: '/resume'
     },
     
     contact: {
-      title: 'Contact Sahid | Let\'s Connect',
-      description: 'Get in touch with Sahid for data science projects, collaborations, job opportunities, or consultations. Connect via email, LinkedIn, or GitHub.',
-      keywords: 'Contact, Email, Hire Data Scientist, Collaboration, Consultation, Get in Touch',
+      title: 'Contact SAHID | Python Developer & Data Scientist for Hire',
+      description: 'Get in touch with SAHID for Python development, data science projects, AI solutions, full-stack applications, collaborations, or consultations. Available for freelance and full-time opportunities. Connect via email, LinkedIn, or GitHub.',
+      keywords: 'Contact, Hire Python Developer, Hire Data Scientist, Hire Full-Stack Developer, Collaboration, Consultation, Freelance Data Scientist, Job Opportunities',
       path: '/contact'
     }
   },
@@ -65,20 +65,27 @@ export const seoConfig = {
     person: {
       '@context': 'https://schema.org',
       '@type': 'Person',
-      name: 'Sahid',
-      jobTitle: 'Data Scientist',
-      description: 'Data Science Enthusiast & Creative Technologist specializing in Machine Learning, AI, and Web Development',
+      name: 'SAHID',
+      jobTitle: ['Python Developer', 'Data Scientist', 'Data Analyst', 'Full-Stack Developer'],
+      description: 'Python Developer, Data Scientist, Data Analyst and Full-Stack Developer specializing in AI-powered web and data applications',
       url: 'https://www.sahid.me',
-      image: 'https://www.sahid.me/og-image.png',
+      image: 'https://www.sahid.me/og.png',
       knowsAbout: [
+        'Python Programming',
         'Data Science',
         'Machine Learning',
-        'Python',
-        'React',
-        'TensorFlow',
         'Data Analytics',
+        'Full-Stack Development',
         'Artificial Intelligence',
-        'Web Development'
+        'TensorFlow',
+        'React',
+        'Flask',
+        'Django',
+        'Data Visualization',
+        'Deep Learning',
+        'Web Development',
+        'FastAPI',
+        'Node.js'
       ]
     }
   }

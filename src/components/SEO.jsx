@@ -3,11 +3,11 @@ import { Helmet } from 'react-helmet-async';
 import PropTypes from 'prop-types';
 
 const SEO = ({ 
-  title = 'Sahid | Data Science & Machine Learning Portfolio',
-  description = 'Data Science Enthusiast & Creative Technologist. Explore my portfolio showcasing machine learning projects, data analytics, and web development solutions.',
-  keywords = 'Sahid, Data Science, Machine Learning, Portfolio, Web Development, AI, Python, React, Data Analytics, TensorFlow',
-  author = 'Sahid',
-  ogImage = '/og-image.png',
+  title = 'SAHID — Python Developer | Data Scientist | Data Analyst | Full-Stack Developer',
+  description = 'Portfolio of SAHID specializing in AI-powered web and data applications. Python Developer, Data Scientist, Data Analyst and Full-Stack Developer building intelligent solutions with Python, machine learning, and modern full-stack development.',
+  keywords = 'SAHID, Python Developer, Data Scientist, Data Analyst, Full-Stack Developer, AI, Machine Learning, Python Programming, Data Analytics, Web Development, Portfolio, TensorFlow, React, Flask',
+  author = 'SAHID',
+  ogImage = '/og.png',
   ogType = 'website',
   twitterCard = 'summary_large_image',
   canonicalUrl,
