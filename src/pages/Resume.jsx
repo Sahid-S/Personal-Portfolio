@@ -27,7 +27,7 @@ const Resume = () => {
       description: "Cumulative GPA: 7/10",
       achievements: [
         "Core Data Science & Programming Foundations: Completed advanced coursework in Python Programming, Fundamentals of Data Science, Artificial Intelligence, Big Data Analytics, Machine Learning, Deep Learning, and Cloud Computing with practical lab work.",
-        "Statistical & Analytical Techniques: Gained strong analytical foundation through Mathematics for Data Science, Statistics (I & II), Data Mining & Warehousing, and Databases for Data Science, enabling data modeling, hypothesis testing, and data-driven decision-making.",
+        "Statistical & Analytical Techniques: Gained strong analytical foundation through Mathematics for Data Science, Data Mining & Warehousing, and Databases for Data Science, enabling data modeling, hypothesis testing, and data-driven decision-making.",
         "Hands-on Industry & Project Experience: Completed practical labs (Python, Big Data, Machine Learning, Deep Learning), internship and a capstone project focusing on end-to-end data workflows: data collection → preprocessing → model building → visualization & deployment."
       ]
     },
