@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../App';
 import { FiGithub, FiExternalLink, FiCalendar, FiUsers } from 'react-icons/fi';
-import { SiPython, SiReact, SiTensorflow, SiFlask, SiMongodb, SiPostgresql, SiDocker, SiJavascript, SiNodedotjs, SiScikitlearn, SiPandas, SiNumpy, SiStreamlit} from 'react-icons/si';
+import { SiPython, SiReact, SiTensorflow, SiFlask, SiMongodb, SiPostgresql, SiDocker, SiJavascript, SiNodedotjs, SiScikitlearn, SiPandas, SiNumpy, SiStreamlit, SiFastapi, SiOpenai} from 'react-icons/si';
 import { FaCode } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import { getPageSEO } from '../config/seoConfig';
@@ -52,6 +52,44 @@ const Projects = () => {
     },
     {
       id: 3,
+      title: 'Marine-Guard: AI-Powered Maritime Safety System',
+      description: 'Innovative capstone project focused on enhancing maritime safety through AI-driven weather prediction. Developed a comprehensive system that utilizes machine learning models to forecast severe weather conditions, providing critical insights and timely warnings to maritime operators, significantly improving safety and decision-making at sea.',
+      image: 'https://media.istockphoto.com/id/519649676/photo/lighthouse-and-bad-weather-in-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=kOeWk6ffbakXGn9X8RLFJK_LW88mLqMB_Mrv_NQb5KU=',
+      techStack: [
+        { name: 'Python', icon: SiPython },
+        { name: 'Pandas', icon: SiPandas },
+        { name: 'Numpy', icon: SiNumpy },
+        { name: 'Scikit-Learn', icon: SiScikitlearn },
+        { name: 'Matplotlib', icon: FaCode },
+        { name: 'React', icon: SiReact },
+      ],
+      features: ['AI-Driven Weather Forecasting', 'Maritime Safety Insights', 'Interactive Data Visualization'],
+      githubLink: 'https://github.com/Sahid-S/Marine-Guard',
+      liveLink: '',
+      date: 'Jan 2026',
+      team: 'Team Project (3 Members)'
+    },
+    {
+      id: 4,
+      title: 'AcadBridge: AI-Powered Academic Research Assistant',
+      description: 'A web-based platform for student-faculty interaction with AI-powered course assistance using RAG (Retrieval-Augmented Generation).',
+      image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      techStack: [
+        { name: 'Python', icon: SiPython },
+        { name: 'Pandas', icon: SiPandas },
+        { name: 'OpenAi', icon: SiOpenai },
+        { name: 'FastApi', icon: SiFastapi },
+        { name: 'Matplotlib', icon: FaCode },
+        { name: 'React', icon: SiReact },
+      ],
+      features: ['AI-Driven Weather Forecasting', 'Maritime Safety Insights', 'Interactive Data Visualization'],
+      githubLink: 'https://github.com/Sahid-S/AcadBridge',
+      liveLink: '',
+      date: 'Jan 2026',
+      team: 'Hackathon Project'
+    },
+    {
+      id: 5,
       title: 'Coming Soon',
       description: 'Exciting new project in development! This innovative application will showcase cutting-edge technology and modern design patterns. Stay tuned for updates as we work on bringing this vision to life.',
       image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170',
