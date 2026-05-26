@@ -239,23 +239,6 @@ const MarkdownRenderer = ({ content }) => {
       prose-table:w-full prose-table:my-8 prose-th:text-left prose-th:border-b
       `}
     >
-      {toc.length > 2 && (
-        <nav aria-label="Table of contents" className="mb-10 rounded-2xl border border-gray-200/70 bg-gray-50/70 p-6 text-sm dark:border-gray-700/70 dark:bg-gray-900/40">
-          <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">On this page</p>
-          <ul className="mt-3 space-y-2">
-            {toc.filter((item) => item.level <= 3).map((item) => (
-              <li key={item.id} className={item.level === 3 ? 'ml-4' : ''}>
-                <a
-                  href={`#${item.id}`}
-                  className="text-gray-600 transition-colors hover:text-purple-600 dark:text-gray-300"
-                >
-                  {item.text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
       <ReactMarkdown
         remarkPlugins={[remarkFrontmatter, remarkGfm, remarkBreaks, remarkMath, remarkDirective, remarkDirectiveToHtml]}
         rehypePlugins={[rehypeRaw, rehypeSlug, rehypeAutolinkHeadings, rehypeHighlight, rehypeKatex]}
