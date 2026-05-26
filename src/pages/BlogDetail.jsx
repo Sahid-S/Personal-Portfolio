@@ -72,7 +72,10 @@ const BlogDetail = () => {
         })
       : '';
 
-  const shareUrl = `https://www.sahid.me/blog/${slug}`;
+  const sharePath = `/blog/${post?.slug || slug}`;
+  const shareUrl = typeof window !== 'undefined'
+    ? `${window.location.origin}${sharePath}`
+    : `https://www.sahid.me${sharePath}`;
 
   const copyLink = async () => {
     try {
