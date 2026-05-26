@@ -85,7 +85,6 @@ async function loadPost(importFn, filePath) {
     slug: frontmatter.slug || fileSlug,
     title: frontmatter.title || fileSlug,
     date: frontmatter.date || '',
-    cover: frontmatter.cover || null,
     tags: frontmatter.tags || [],
     published: frontmatter.published !== false,
     description: frontmatter.description || '',

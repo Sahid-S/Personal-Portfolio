@@ -111,7 +111,7 @@ const BlogDetail = () => {
         description={post.description}
         keywords={post.tags.join(', ')}
         ogType="article"
-        ogImage={post.cover || '/og.png'}
+        ogImage="/og.png"
         canonicalUrl={shareUrl}
       />
 
@@ -234,17 +234,6 @@ const BlogDetail = () => {
                 </div>
               </div>
 
-              {/* Cover Image */}
-              {post.cover && (
-                <div className="mt-6 rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src={post.cover}
-                    alt={post.title}
-                    className="w-full max-h-80 object-cover"
-                    onError={(e) => { e.target.parentElement.style.display = 'none'; }}
-                  />
-                </div>
-              )}
             </motion.header>
 
             {/* Content */}

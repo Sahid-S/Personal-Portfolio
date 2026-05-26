@@ -5,7 +5,7 @@ import { ThemeContext } from '../App';
 import SEO from '../components/SEO';
 import BlogCard from '../components/blog/BlogCard';
 import { getAllBlogs, searchBlogs, getBlogsByTag, getAllTags } from '../services/blogService';
-import { FiSearch, FiX, FiTag, FiBookOpen, FiRss } from 'react-icons/fi';
+import { FiSearch, FiX, FiTag, FiBookOpen } from 'react-icons/fi';
 
 const Blog = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -126,13 +126,6 @@ const Blog = () => {
               Writing about Python, data science, machine learning, and building things on the web.
             </p>
 
-            {/* RSS link */}
-            <a
-              href="/rss.xml"
-              className="inline-flex items-center gap-1.5 mt-3 text-xs text-orange-500 hover:text-orange-400 transition-colors"
-            >
-              <FiRss className="w-3.5 h-3.5" /> RSS Feed
-            </a>
           </motion.div>
 
           {/* Search Bar */}

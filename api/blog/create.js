@@ -4,7 +4,7 @@
  * Requires a valid admin session cookie.
  *
  * POST /api/blog/create
- * Body: { title, slug, date, cover, tags, published, description, readingTime, body }
+ * Body: { title, slug, date, tags, published, description, readingTime, body }
  */
 
 import { validateSession } from '../auth/login.js';

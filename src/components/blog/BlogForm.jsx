@@ -8,14 +8,11 @@ const BlogForm = ({ initialData = {}, onSubmit, isSubmitting = false }) => {
   const { darkMode } = useContext(ThemeContext);
   const [preview, setPreview] = useState(false);
   const [tagInput, setTagInput] = useState('');
-  const [coverUploading, setCoverUploading] = useState(false);
-  const [coverError, setCoverError] = useState('');
 
   const [form, setForm] = useState({
     title: initialData.title || '',
     slug: initialData.slug || '',
     description: initialData.description || '',
-    cover: initialData.cover || '',
     tags: initialData.tags || [],
     published: initialData.published ?? true,
     body: initialData.body || '# Write your post here\n\nStart writing...',
@@ -51,56 +48,6 @@ const BlogForm = ({ initialData = {}, onSubmit, isSubmitting = false }) => {
     }
   };
 
-  const readFileAsDataUrl = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = () => reject(new Error('Failed to read file'));
-      reader.readAsDataURL(file);
-    });
-
-  const handleCoverUpload = async (file) => {
-    if (!file) return;
-    setCoverError('');
-
-    if (!file.type.startsWith('image/')) {
-      setCoverError('Please choose a valid image file.');
-      return;
-    }
-
-    if (file.size > 2 * 1024 * 1024) {
-      setCoverError('Image too large (max 2MB).');
-      return;
-    }
-
-    setCoverUploading(true);
-    try {
-      const dataUrl = await readFileAsDataUrl(file);
-      const res = await fetch('/api/blog/upload-image', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({
-          dataUrl,
-          fileName: file.name,
-          contentType: file.type,
-          slug: form.slug || generateSlug(form.title || 'cover'),
-        }),
-      });
-
-      const data = await res.json();
-      if (res.ok && data.success && data.url) {
-        handleChange('cover', data.url);
-      } else {
-        setCoverError(data.message || 'Upload failed.');
-      }
-    } catch {
-      setCoverError('Upload failed. Please try again.');
-    } finally {
-      setCoverUploading(false);
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit({
@@ -114,12 +61,6 @@ const BlogForm = ({ initialData = {}, onSubmit, isSubmitting = false }) => {
       ? 'bg-gray-800 border-gray-700 text-gray-100 placeholder-gray-500 focus:border-purple-500'
       : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400 focus:border-purple-500'
   }`;
-
-  const fileInputClass = `w-full text-sm rounded-lg border px-3 py-2 ${
-    darkMode
-      ? 'bg-gray-800 border-gray-700 text-gray-100 file:bg-gray-700 file:text-gray-200'
-      : 'bg-white border-gray-300 text-gray-900 file:bg-gray-100 file:text-gray-700'
-  } file:border-0 file:mr-3 file:py-2 file:px-3 file:rounded-md`;
 
   const labelClass = `block text-xs font-semibold uppercase tracking-wider mb-1 ${
     darkMode ? 'text-gray-400' : 'text-gray-500'
@@ -140,58 +81,17 @@ const BlogForm = ({ initialData = {}, onSubmit, isSubmitting = false }) => {
         />
       </div>
 
-      {/* Cover upload */}
+      {/* Slug */}
       <div>
-        <label className={labelClass}>Upload Cover Image</label>
+        <label className={labelClass}>Slug *</label>
         <input
-          type="file"
-          accept="image/*"
-          className={fileInputClass}
-          onChange={(e) => handleCoverUpload(e.target.files?.[0])}
+          type="text"
+          value={form.slug}
+          onChange={(e) => handleChange('slug', e.target.value)}
+          placeholder="my-awesome-blog-post"
+          className={inputClass}
+          required
         />
-        <div className={`mt-2 text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-          JPG/PNG/WEBP/GIF, max 2MB.
-          {coverUploading && ' Uploading...'}
-        </div>
-        {coverError && (
-          <p className="mt-2 text-xs text-red-500">{coverError}</p>
-        )}
-        {form.cover && (
-          <div className="mt-3">
-            <img
-              src={form.cover}
-              alt="Cover preview"
-              className={`h-32 w-full max-w-md object-cover rounded-lg border ${
-                darkMode ? 'border-gray-700' : 'border-gray-200'
-              }`}
-            />
-          </div>
-        )}
-      </div>
-
-      {/* Slug + Cover (2-col) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label className={labelClass}>Slug *</label>
-          <input
-            type="text"
-            value={form.slug}
-            onChange={(e) => handleChange('slug', e.target.value)}
-            placeholder="my-awesome-blog-post"
-            className={inputClass}
-            required
-          />
-        </div>
-        <div>
-          <label className={labelClass}>Cover Image URL</label>
-          <input
-            type="text"
-            value={form.cover}
-            onChange={(e) => handleChange('cover', e.target.value)}
-            placeholder="/assets/blog-covers/my-post.jpg"
-            className={inputClass}
-          />
-        </div>
       </div>
 
       {/* Description */}

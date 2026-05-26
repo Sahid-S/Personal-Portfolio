@@ -233,22 +233,6 @@ const BlogEditor = () => {
               <div className="space-y-3">
                 {posts.map((post) => (
                   <div key={post.slug} className={`${card} flex items-center gap-4`}>
-                    {/* Cover thumbnail */}
-                    <div className="hidden sm:block w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-                      {post.cover ? (
-                        <img
-                          src={post.cover}
-                          alt=""
-                          className="w-full h-full object-cover"
-                          onError={(e) => { e.target.parentElement.style.background = 'linear-gradient(135deg,#7c3aed,#db2777)'; e.target.style.display='none'; }}
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
-                          <span className="text-white font-bold text-xl">{post.title?.charAt(0)}</span>
-                        </div>
-                      )}
-                    </div>
-
                     {/* Info */}
                     <div className="flex-1 min-w-0">
                       <h3 className={`font-semibold truncate ${darkMode ? 'text-white' : 'text-gray-900'}`}>

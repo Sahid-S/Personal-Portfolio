@@ -26,24 +26,6 @@ const BlogCard = ({ post, featured = false, index = 0 }) => {
           darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
         } border shadow-lg hover:shadow-2xl transition-shadow duration-300`}
       >
-        {/* Cover Image */}
-        {post.cover ? (
-          <div className="h-56 overflow-hidden">
-            <img
-              src={post.cover}
-              alt={post.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              onError={(e) => { e.target.style.display = 'none'; }}
-            />
-          </div>
-        ) : (
-          <div className="h-56 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 flex items-center justify-center">
-            <span className="text-white/30 text-8xl font-bold select-none">
-              {post.title?.charAt(0)}
-            </span>
-          </div>
-        )}
-
         {/* Featured Badge */}
         <div className="absolute top-4 left-4">
           <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
@@ -130,24 +112,6 @@ const BlogCard = ({ post, featured = false, index = 0 }) => {
           : 'bg-white border-gray-200 hover:border-purple-300'
       }`}
     >
-      {/* Cover */}
-      {post.cover ? (
-        <div className="h-44 overflow-hidden">
-          <img
-            src={post.cover}
-            alt={post.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            onError={(e) => { e.target.parentElement.style.display = 'none'; }}
-          />
-        </div>
-      ) : (
-        <div className="h-44 bg-gradient-to-br from-purple-600/80 via-pink-500/80 to-orange-400/80 flex items-center justify-center">
-          <span className="text-white/20 text-7xl font-bold select-none">
-            {post.title?.charAt(0)}
-          </span>
-        </div>
-      )}
-
       <div className="p-5">
         {/* Tags */}
         {post.tags?.length > 0 && (

@@ -2,7 +2,6 @@
 title: "Hello World — My First Blog Post"
 slug: "hello-world"
 date: "2026-05-25"
-cover: "/assets/blog-covers/hello-world.jpg"
 tags: ["python", "data-science", "machine-learning"]
 published: true
 description: "Welcome to my blog! I'll be writing about Python, data science, machine learning, and my journey as a developer."
