@@ -4,11 +4,11 @@
  * Requires a valid admin session cookie.
  *
  * POST /api/blog/edit
- * Body: { title, slug, date, tags, published, description, readingTime, body }
+ * Body: { title, slug, originalSlug, date, tags, published, description, readingTime, body }
  */
 
 import { validateSession } from '../auth/login.js';
-import { getFile, putFile, buildMarkdown } from '../_github.js';
+import { getFile, putFile, deleteFile, buildMarkdown } from '../_github.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -31,16 +31,33 @@ export default async function handler(req, res) {
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '');
 
+  const originalSlug = (data.originalSlug || data.slug)
+    .toLowerCase()
+    .replace(/[^a-z0-9-]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+
   const filePath = `content/blogs/${slug}.md`;
+  const originalPath = `content/blogs/${originalSlug}.md`;
 
   try {
     // Must exist to edit
-    const existing = await getFile(filePath);
+    const existing = await getFile(originalPath);
     if (!existing) {
       return res.status(404).json({
         success: false,
-        message: `Post "${slug}" not found. Use the create endpoint for new posts.`,
+        message: `Post "${originalSlug}" not found. Use the create endpoint for new posts.`,
       });
+    }
+
+    if (slug !== originalSlug) {
+      const conflict = await getFile(filePath);
+      if (conflict) {
+        return res.status(409).json({
+          success: false,
+          message: `A post with slug "${slug}" already exists. Choose another slug.`,
+        });
+      }
     }
 
     const markdown = buildMarkdown({ ...data, slug });
@@ -49,8 +66,16 @@ export default async function handler(req, res) {
       filePath,
       markdown,
       `blog: update "${data.title || slug}"`,
-      existing.sha
+      slug === originalSlug ? existing.sha : null
     );
+
+    if (slug !== originalSlug) {
+      try {
+        await deleteFile(originalPath, existing.sha, `blog: rename "${originalSlug}" → "${slug}"`);
+      } catch (err) {
+        console.error('Rename cleanup error:', err);
+      }
+    }
 
     return res.status(200).json({
       success: true,

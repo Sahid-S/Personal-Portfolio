@@ -63,11 +63,14 @@ const BlogEditor = () => {
     setIsSubmitting(true);
     try {
       const endpoint = editingPost ? '/api/blog/edit' : '/api/blog/create';
+      const payload = editingPost
+        ? { ...formData, originalSlug: editingPost.slug }
+        : formData;
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
