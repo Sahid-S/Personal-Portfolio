@@ -4,19 +4,8 @@ import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeHighlight from 'rehype-highlight';
 import { ThemeContext } from '../../App';
-
-// Highlight.js styles loaded dynamically based on theme
-let hlLoaded = false;
-async function loadHl() {
-  if (hlLoaded) return;
-  hlLoaded = true;
-  // Vite-safe dynamic import
-  const hljs = (await import('highlight.js')).default;
-  document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightElement(block);
-  });
-}
 
 const MarkdownRenderer = ({ content }) => {
   const { darkMode } = useContext(ThemeContext);
@@ -38,8 +27,6 @@ const MarkdownRenderer = ({ content }) => {
       document.head.appendChild(link);
     }
 
-    // Run highlighter after render
-    setTimeout(loadHl, 100);
   }, [darkMode, content]);
 
   return (
@@ -48,22 +35,24 @@ const MarkdownRenderer = ({ content }) => {
         darkMode ? 'prose-invert text-gray-100' : 'text-gray-800'
       }
       prose-headings:font-bold
-      prose-h1:text-3xl prose-h1:mt-8 prose-h1:mb-4
+      prose-h1:text-3xl prose-h1:mt-0 prose-h1:mb-4
       prose-h2:text-2xl prose-h2:mt-6 prose-h2:mb-3
       prose-h3:text-xl prose-h3:mt-5 prose-h3:mb-2
       prose-p:leading-relaxed prose-p:mb-4
       prose-a:text-purple-500 prose-a:no-underline hover:prose-a:underline
       prose-code:text-pink-500 prose-code:bg-transparent prose-code:font-mono prose-code:text-sm
-      prose-pre:rounded-xl prose-pre:p-0 prose-pre:bg-transparent prose-pre:shadow-lg
-      prose-blockquote:border-l-4 prose-blockquote:border-purple-500 prose-blockquote:pl-4 prose-blockquote:italic
-      prose-ul:list-disc prose-ol:list-decimal
+      prose-code:before:content-[''] prose-code:after:content-['']
+      prose-pre:rounded-xl prose-pre:p-0 prose-pre:bg-transparent prose-pre:shadow-lg prose-pre:my-6
+      prose-blockquote:border-l-4 prose-blockquote:border-purple-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-4
+      prose-ul:list-disc prose-ol:list-decimal prose-ul:my-4 prose-ol:my-4 prose-li:my-1
+      prose-hr:my-6 prose-hr:border-gray-200 dark:prose-hr:border-gray-700
       prose-img:rounded-xl prose-img:shadow-md
-      prose-table:w-full prose-th:text-left prose-th:border-b
+      prose-table:w-full prose-table:my-6 prose-th:text-left prose-th:border-b
       `}
     >
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkBreaks]}
-        rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings]}
+        rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeHighlight]}
         components={{
           // Code block with filename support
           pre({ children, ...props }) {
@@ -79,11 +68,10 @@ const MarkdownRenderer = ({ content }) => {
               </div>
             );
           },
-          code({ node, inline, className, children, ...props }) {
-            const match = /language-(\w+)/.exec(className || '');
-            if (!inline && match) {
+          code({ inline, className, children, ...props }) {
+            if (!inline) {
               return (
-                <code className={`${className} block`} {...props}>
+                <code className={`${className || ''} block`} {...props}>
                   {children}
                 </code>
               );
