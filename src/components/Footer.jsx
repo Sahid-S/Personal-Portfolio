@@ -14,6 +14,7 @@ const Footer = () => {
     { name: 'Projects', path: '/projects' },
     { name: 'Resume', path: '/resume' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Blog', path: '/blog' },
   ];
 
   const socialLinks = [

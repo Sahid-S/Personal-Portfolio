@@ -12,7 +12,8 @@ import {
   FiCode,
   FiBriefcase,
   FiFileText,
-  FiMail
+  FiMail,
+  FiBookOpen
 } from 'react-icons/fi';
 
 const Navbar = () => {
@@ -37,6 +38,7 @@ const Navbar = () => {
     { path: '/projects', name: 'Projects', icon: FiBriefcase },
     { path: '/resume', name: 'Resume', icon: FiFileText },
     { path: '/contact', name: 'Contact', icon: FiMail },
+    { path: '/blog', name: 'Blog', icon: FiBookOpen },
   ];
 
   const handleNavClick = () => {

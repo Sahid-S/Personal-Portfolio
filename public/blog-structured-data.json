@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Sahid Blog",
+  "url": "https://www.sahid.me/blog",
+  "description": "Python, data science, machine learning, and full-stack development.",
+  "author": {
+    "@type": "Person",
+    "name": "Sahid",
+    "url": "https://www.sahid.me"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Hello World — My First Blog Post",
+      "url": "https://www.sahid.me/blog/hello-world",
+      "datePublished": "2026-05-25",
+      "description": "Welcome to my blog! I'll be writing about Python, data science, machine learning, and my journey as a developer."
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "10 Python Tips Every Data Scientist Should Know",
+      "url": "https://www.sahid.me/blog/python-data-science-tips",
+      "datePublished": "2026-05-20",
+      "description": "Level up your Python data science workflow with these 10 practical tips covering pandas, numpy, and clean code patterns."
+    }
+  ]
+}

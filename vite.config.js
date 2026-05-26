@@ -10,6 +10,17 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true
-  }
+    sourcemap: true,
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'blog-renderer': ['react-markdown', 'remark-gfm', 'remark-breaks',
+            'rehype-slug', 'rehype-autolink-headings'],
+        }
+      }
+    }
+  },
+  // Allow importing markdown files as raw strings
+  assetsInclude: ['**/*.md'],
 })
