@@ -46,14 +46,14 @@ export default async function handler(req, res) {
   }
 
   // Constant-time comparison to prevent timing attacks
-  const usernameMatch = crypto.timingSafeEqual(
-    Buffer.from(username || ''),
-    Buffer.from(validUsername)
-  );
-  const passwordMatch = crypto.timingSafeEqual(
-    Buffer.from(password || ''),
-    Buffer.from(validPassword)
-  );
+  const providedUsername = typeof username === 'string' ? username : '';
+  const providedPassword = typeof password === 'string' ? password : '';
+  const usernameMatch =
+    providedUsername.length === validUsername.length &&
+    crypto.timingSafeEqual(Buffer.from(providedUsername), Buffer.from(validUsername));
+  const passwordMatch =
+    providedPassword.length === validPassword.length &&
+    crypto.timingSafeEqual(Buffer.from(providedPassword), Buffer.from(validPassword));
 
   if (!usernameMatch || !passwordMatch) {
     // Small delay to further slow brute force
@@ -70,13 +70,8 @@ export default async function handler(req, res) {
 
   // Set HTTP-only cookie
   res.setHeader(
-  "Set-Cookie",
-  `admin_session=${token};
-  HttpOnly;
-  Secure;
-  SameSite=Lax;
-  Max-Age=${8 * 3600};
-  Path=/`
+    'Set-Cookie',
+    `admin_session=${token}; HttpOnly; Secure; SameSite=Lax; Max-Age=${8 * 3600}; Path=/`
   );
 
   return res.status(200).json({ success: true, token });
