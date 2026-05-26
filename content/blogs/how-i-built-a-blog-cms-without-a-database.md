@@ -1,6 +1,6 @@
 ---
 title: "How I Built a Blog CMS Without a Database"
-slug: "hello-world"
+slug: "how-i-built-a-blog-cms-without-a-database"
 date: "2026-05-26"
 tags: ["react","github","serverless","vercel"]
 published: true
