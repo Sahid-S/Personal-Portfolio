@@ -45,7 +45,7 @@ const MarkdownRenderer = ({ content }) => {
   return (
     <div
       className={`prose prose-lg max-w-none ${
-        darkMode ? 'prose-invert' : ''
+        darkMode ? 'prose-invert text-gray-100' : 'text-gray-800'
       }
       prose-headings:font-bold
       prose-h1:text-3xl prose-h1:mt-8 prose-h1:mb-4
