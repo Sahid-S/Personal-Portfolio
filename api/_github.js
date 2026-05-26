@@ -61,6 +61,32 @@ export async function putFile(path, content, message, sha = null) {
 }
 
 /**
+ * Create or update a file in the repo with already base64-encoded content.
+ * Useful for binary uploads such as images.
+ */
+export async function putFileBase64(path, base64Content, message, sha = null) {
+  const url = `${BASE}/repos/${OWNER()}/${REPO()}/contents/${path}`;
+  const body = {
+    message,
+    content: base64Content,
+    branch: process.env.GITHUB_BRANCH || 'main',
+  };
+  if (sha) body.sha = sha;
+
+  const res = await fetch(url, {
+    method: 'PUT',
+    headers: headers(),
+    body: JSON.stringify(body),
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(`GitHub putFileBase64 failed: ${res.status} — ${err.message || ''}`);
+  }
+  return res.json();
+}
+
+/**
  * Delete a file from the repo.
  */
 export async function deleteFile(path, sha, message) {
