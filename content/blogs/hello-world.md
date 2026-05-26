@@ -1,50 +1,77 @@
 ---
-title: "Hello World — My First Blog Post"
+title: "How I Built a Blog CMS Without a Database"
 slug: "hello-world"
-<<<<<<< HEAD
-date: "2026-05-25"
-tags: ["python", "data-science", "machine-learning"]
-=======
 date: "2026-05-26"
-cover: "/assets/blog-covers/hello-world-mpmcgh9x-621442.jpg"
-tags: ["python","data-science","machine-learning"]
->>>>>>> 4837c41dc5a8b9da8562b03df6d36e37a9f85e5f
+tags: ["react","github","serverless","vercel"]
 published: true
-description: "Welcome to my blog! I'll be writing about Python, data science, machine learning, and my journey as a developer."
+description: "I Built a Blog CMS Without a Database Using React + GitHub + Serverless"
 readingTime: 1
 ---
+# **I Built a Blog CMS Without a Database Using React \+ GitHub \+ Serverless**
 
-# Hello World — My First Blog Post
+When I decided to add a blog to my portfolio website, I wanted to avoid setting up a traditional backend and database.
 
-Welcome to my blog! I'm **Sahid**, a Python developer, data scientist, and full-stack engineer based in Madurai, India.
+The question was:
 
-## What to Expect
+**Can a personal website support content publishing while staying lightweight?**
 
-On this blog, I'll write about:
+Turns out — yes.
 
-- **Python & Data Science** — practical tutorials, tips, and deep dives
-- **Machine Learning** — real projects, model explanations, and lessons learned
-- **Full-Stack Development** — React, Flask, and the tools I use daily
-- **Career Reflections** — things I wish I'd known earlier
+## **The idea**
 
-## Why Start a Blog?
+Instead of storing blog posts in a database:
 
-Writing forces clarity. When I try to explain something, I discover what I actually understand and what I've been glossing over. This blog is as much for me as it is for you.
+* Blog posts are stored as **Markdown files**  
+* Content is managed through an **admin interface**  
+* Publishing triggers a **serverless function**  
+* The server commits content directly into **GitHub**  
+* Deployment happens automatically
 
-## My Stack Right Now
+## **Architecture**
 
-```python
-stack = {
-    "languages": ["Python", "JavaScript", "SQL"],
-    "ml": ["TensorFlow", "scikit-learn", "pandas"],
-    "frontend": ["React", "Tailwind CSS", "Framer Motion"],
-    "backend": ["Flask", "FastAPI"],
-    "tools": ["Git", "Docker", "Vercel"]
-}
-```
+Write Blog  
+↓  
+Serverless Function  
+↓  
+Generate Markdown  
+↓  
+Commit to GitHub  
+↓  
+Build Trigger  
+↓  
+Deploy  
+↓  
+Blog goes live
 
-## Let's Connect
+## **Why this approach?**
 
-If you find something useful here, or want to discuss ideas, reach out via the [Contact](/contact) page or find me on [GitHub](https://github.com/Sahid-S).
+### **1\. No database maintenance**
 
-Stay curious. Keep building. 🚀
+No schema, migrations, backups, or hosting.
+
+### **2\. Version-controlled content**
+
+Every blog update becomes a commit.
+
+### **3\. Lightweight deployment**
+
+Only static files get served.
+
+### **4\. Lower operational complexity**
+
+Less infrastructure to manage.
+
+## **Tech Stack**
+
+* React  
+* Vite  
+* Serverless Functions  
+* GitHub API  
+* Markdown  
+* Automated Deployment
+
+One interesting takeaway from building this:
+
+Not every feature needs a database.
+
+Sometimes a simpler architecture is enough.
