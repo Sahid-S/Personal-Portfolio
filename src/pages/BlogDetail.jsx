@@ -15,6 +15,7 @@ import {
   FiTwitter,
   FiLinkedin,
   FiLink,
+  FiUser,
 } from 'react-icons/fi';
 
 const BlogDetail = () => {
@@ -147,7 +148,7 @@ const BlogDetail = () => {
             </Link>
           </motion.div>
 
-          <article ref={articleRef}>
+          <article ref={articleRef} className="mx-auto max-w-[760px]">
             {/* Header */}
             <motion.header
               initial={{ opacity: 0, y: 20 }}
@@ -177,12 +178,18 @@ const BlogDetail = () => {
 
               {/* Title */}
               <h1
-                className={`text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 ${
+                className={`text-[42px] md:text-[56px] font-bold leading-[1.1] tracking-tight mb-4 ${
                   darkMode ? 'text-white' : 'text-gray-900'
                 }`}
               >
                 {post.title}
               </h1>
+
+              {post.description && (
+                <p className={`text-[20px] leading-[1.8] mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  {post.description}
+                </p>
+              )}
 
               {/* Meta row */}
               <div
@@ -197,6 +204,10 @@ const BlogDetail = () => {
                 <span className="flex items-center gap-1.5">
                   <FiClock className="w-4 h-4" />
                   {post.readingTime} min read
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <FiUser className="w-4 h-4" />
+                  Sahid
                 </span>
 
                 {/* Share buttons */}

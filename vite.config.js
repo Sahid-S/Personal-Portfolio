@@ -15,8 +15,19 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'blog-renderer': ['react-markdown', 'remark-gfm', 'remark-breaks',
-            'rehype-slug', 'rehype-autolink-headings'],
+          'blog-renderer': [
+            'react-markdown',
+            'remark-gfm',
+            'remark-breaks',
+            'remark-directive',
+            'remark-frontmatter',
+            'remark-math',
+            'rehype-slug',
+            'rehype-autolink-headings',
+            'rehype-highlight',
+            'rehype-raw',
+            'rehype-katex',
+          ],
         }
       }
     }
