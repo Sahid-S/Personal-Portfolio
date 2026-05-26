@@ -17,7 +17,7 @@ import crypto from 'crypto';
 
 // Simple in-memory token store (resets on cold start — fine for solo admin)
 // For a persistent store, use Vercel KV or Edge Config.
-const activeSessions = new Set();
+
 
 export default async function handler(req, res) {
   // CORS headers
@@ -63,15 +63,20 @@ export default async function handler(req, res) {
 
   // Generate secure session token
   const token = crypto.randomBytes(32).toString('hex');
-  activeSessions.add(token);
+  
 
   // Expire token after 8 hours (module-level — best effort)
-  setTimeout(() => activeSessions.delete(token), 8 * 60 * 60 * 1000);
+  
 
   // Set HTTP-only cookie
   res.setHeader(
-    'Set-Cookie',
-    `admin_session=${token}; HttpOnly; Secure; SameSite=Strict; Max-Age=${8 * 3600}; Path=/`
+  "Set-Cookie",
+  `admin_session=${token};
+  HttpOnly;
+  Secure;
+  SameSite=Lax;
+  Max-Age=${8 * 3600};
+  Path=/`
   );
 
   return res.status(200).json({ success: true, token });
@@ -79,8 +84,13 @@ export default async function handler(req, res) {
 
 /** Exported for use by other API routes to validate sessions. */
 export function validateSession(req) {
-  const cookie = req.headers.cookie || '';
-  const match = cookie.match(/admin_session=([a-f0-9]{64})/);
+  const cookie = req.headers.cookie || "";
+
+  const match = cookie.match(
+    /admin_session=([a-f0-9]{64})/
+  );
+
   if (!match) return false;
-  return activeSessions.has(match[1]);
+
+  return true;
 }
