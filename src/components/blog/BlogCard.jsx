@@ -26,14 +26,13 @@ const BlogCard = ({ post, featured = false, index = 0 }) => {
           darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
         } border shadow-lg hover:shadow-2xl transition-shadow duration-300`}
       >
-        {/* Featured Badge */}
-        <div className="absolute top-4 left-4">
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-            Featured
-          </span>
-        </div>
-
         <div className="p-6">
+          {/* Featured Badge */}
+          <div className="mb-4">
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              Featured
+            </span>
+          </div>
           {/* Tags */}
           {post.tags?.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-3">
